@@ -43,13 +43,9 @@ hookn = hookmetamethod(game,"__namecall",function(self,...) -- TODO: clear cache
                     Hooked[func] = true
                     if checkn(func) == false then -- check if its a fake preload
                         local hf;hf = hookfunction(func, function(id,stat)
-                            if typeof(id) == "string" then
-                                for i,v in pairs(Protected) do
-                                    if id == v then
-                                        print(id,"spoofed",id==v)
-                                        return SpoofID
-                                    end
-                                end
+                            if typeof(id) == "string" and table.find(Protected,id) then
+                                print(id,"spoofed",id==v)
+                                return SpoofID
                             end
                             return hf(id,stat)
                         end) 
@@ -62,7 +58,7 @@ hookn = hookmetamethod(game,"__namecall",function(self,...) -- TODO: clear cache
 end)
 
 --
-task.spawn(function()
+do
     if IY_LOADED and not _G.IY_DEBUG == true then
         -- error("Infinite Yield is already running!", 0)
         return
@@ -12479,4 +12475,4 @@ task.spawn(function()
         minimizeHolder()
         if IsOnMobile then notify("Unstable Device", "On mobile, Infinite Yield may have issues or features that are not functioning correctly.") end
     end)
-end)
+end
