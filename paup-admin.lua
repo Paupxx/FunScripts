@@ -144,7 +144,7 @@ Background2.Parent = RelatedMenu
 
 admin2.Parent = game.Players.LocalPlayer.PlayerGui
 
-local RichText = require(script.RichText) -- TODO: CHANGE TO LOADSTRING
+--local RichText = require(script.RichText) -- TODO: CHANGE TO LOADSTRING
 
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
