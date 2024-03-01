@@ -23,7 +23,7 @@ local NotificationStrings = {
 }
 local VisualizerEffect = {
     ["Scourge"] = true,
-    ["Throw Reaper"] = false,
+    ["Throw Reaper"] = true,
 }
 
 local AllowedParts = {}
