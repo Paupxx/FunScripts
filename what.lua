@@ -1,6 +1,6 @@
 getgenv().HowFastDanSchneiderCatchesYou = 1
-getgenv().HowMuchDanSchneiderTouchesYou = 15
-getgenv().HowMuchDanSchneiderTouchedYou = 25
+getgenv().HowMuchDanSchneiderTouchesYou = 6
+getgenv().HowMuchDanSchneiderTouchedYou = 9999
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
 local w = library:CreateWindow("Sword Fight") -- Creates the window
