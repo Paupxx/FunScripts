@@ -67,7 +67,7 @@ local function getClosestPlayer()
     local shortestDistance = HowMuchDanSchneiderTouchedYou
 
     for i, v in pairs(game:GetService("Players"):GetPlayers()) do
-        if v.Name ~= localPlayer.Name then
+        if v.Name ~= localPlayer.Name and v.Team ~= localPlayer.Team then
             if v.Character and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Head") then
                 if v.Character:FindFirstChildOfClass("ForceField") then
                     else
