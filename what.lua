@@ -1,6 +1,7 @@
 getgenv().HowFastDanSchneiderCatchesYou = 1
 getgenv().HowMuchDanSchneiderTouchesYou = 6
 getgenv().HowMuchDanSchneiderTouchedYou = 9999
+getgenv().NoWeDont = {"ACCEPT_MEPENDHUB","ExpungedTurtle","DuckOnTop_3203"}
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
 
 local w = library:CreateWindow("Sword Fight") -- Creates the window
@@ -67,7 +68,7 @@ local function getClosestPlayer()
     local shortestDistance = HowMuchDanSchneiderTouchedYou
 
     for i, v in pairs(game:GetService("Players"):GetPlayers()) do
-        if v.Name ~= localPlayer.Name and v.Team ~= nil and v.Team ~= localPlayer.Team and not v.Team.Name:find("Spectator") and not v.Team.Name:find("Benched") then
+        if v.Name ~= localPlayer.Name and v.Team ~= nil and v.Team ~= localPlayer.Team and not v.Team.Name:find("Spectator") and not v.Team.Name:find("Benched") and not table.find(NoWeDont, v.Name) then
             if v.Character and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health ~= 0 and v.Character.Humanoid.Health < 200 and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Head") then
                 if v.Character:FindFirstChildOfClass("ForceField") then
                     else
