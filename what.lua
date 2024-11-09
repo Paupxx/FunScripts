@@ -67,8 +67,8 @@ local function getClosestPlayer()
     local shortestDistance = HowMuchDanSchneiderTouchedYou
 
     for i, v in pairs(game:GetService("Players"):GetPlayers()) do
-        if v.Name ~= localPlayer.Name and v.Team ~= localPlayer.Team then
-            if v.Character and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Head") then
+        if v.Name ~= localPlayer.Name and v.Team ~= nil and v.Team ~= localPlayer.Team and not v.Team.Name:find("Spectator") and not v.Team.Name:find("Benched") then
+            if v.Character and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health ~= 0 and v.Character.Humanoid.Health < 200 and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Head") then
                 if v.Character:FindFirstChildOfClass("ForceField") then
                     else
 
@@ -105,30 +105,30 @@ humanoid:SetStateEnabled(stateType.Ragdoll, false)
 while true do
     wait()
     spawn(function()
-spawn(function()
-			
-if executed  then 
+    spawn(function()
+                
+    if executed  then 
+        else
+        getgenv().executed = true
+    spawn(function()
+
+    getgenv().Daddy_Catches_You = false
+        getgenv().ssss = game.Players.LocalPlayer:GetMouse()
+
+    ssss.KeyDown:connect(function(key)
+    if key == "x" then
+    if Daddy_Catches_You == false then
+        getgenv().Daddy_Catches_You = true
     else
-    getgenv().executed = true
-spawn(function()
+        
+            getgenv().Daddy_Catches_You = false
+        
+    end
+    end
+    end)
 
-getgenv().Daddy_Catches_You = false
-	getgenv().ssss = game.Players.LocalPlayer:GetMouse()
-
-ssss.KeyDown:connect(function(key)
-if key == "x" then
-if Daddy_Catches_You == false then
-    getgenv().Daddy_Catches_You = true
-   else
-       
-        getgenv().Daddy_Catches_You = false
-    
-end
-end
-end)
-
-end)
-end
+    end)
+    end
 end)
 local nigger = getClosestPlayer()
 if game:GetService("Players").LocalPlayer.Character.PrimaryPart  and getClosestPlayer() ~= nil and Daddy_Catches_You == true then
