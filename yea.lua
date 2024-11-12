@@ -22,7 +22,6 @@ local function onCharacterAdded(Character)
             clonedPart.CanQuery = false
             clonedPart.CanTouch = false
             clonedPart.Massless = true
-            clonedPart.Name = "Fake"..Part.Name
             clonedPart.Size = Part.Size
 
             clonedPart.CFrame = Part.CFrame
@@ -31,8 +30,10 @@ local function onCharacterAdded(Character)
             Weld.Parent = clonedPart
             Weld.Part0 = clonedPart
             Weld.Part1 = Part
-
+            
             clonedPart.Parent = Part
+            clonedPart.Name = Part.Name
+            Part.Name = "Real "..Part.Name
         end
     end
 
@@ -40,7 +41,8 @@ local function onCharacterAdded(Character)
         if Desc:IsA("SelectionBox") then
             local toAdornee = Desc.Parent 
 
-            local fakePartAdornee = Character:FindFirstChild("Fake"..toAdornee.Name)
+            warn(toAdornee.Name, string.split(toAdornee.Name, " ")[2])
+            local fakePartAdornee = Character:FindFirstChild(string.split(toAdornee.Name, " ")[2])
             if fakePartAdornee ~= nil then
                 Desc.Adornee = fakePartAdornee
                 Desc:GetPropertyChangedSignal("Adornee"):Connect(function()
