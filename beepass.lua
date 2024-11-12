@@ -101,6 +101,7 @@ task.defer(function()
                         for _, Limb in pairs(Player.Character:GetChildren()) do
                             if table.find(Settings.Limbs, Limb.Name) and not ResizedCache[Limb] then
                                 ResizedCache[Limb] = {Size = Limb.Size, Mass = Limb.Mass, GetMass = Limb:GetMass(), AssemblyMass = Limb.AssemblyMass}
+                                Limb.Transparency = 1
 
                                 HandleConnections(Limb, false)
                                 task.wait()
@@ -113,6 +114,7 @@ task.defer(function()
             else
                 for Limb, OriginalProperties in pairs(ResizedCache) do
                     Limb.Size = OriginalProperties.Size
+                    Limb.Transparency = 0
                     ResizedCache[Limb] = nil
                 end
             end
