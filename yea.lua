@@ -31,7 +31,7 @@ local function onCharacterAdded(Character)
             Weld.Part0 = clonedPart
             Weld.Part1 = Part
             
-            clonedPart.Parent = Part
+            clonedPart.Parent = Character
             clonedPart.Name = Part.Name
             Part.Name = "Real "..Part.Name
         end
