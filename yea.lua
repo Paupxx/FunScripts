@@ -10,8 +10,14 @@ local function onCharacterAdded(Character)
     for _,Part in pairs(Character:GetChildren()) do
         if Part:IsA("BasePart") and table.find(spoofParts, Part.Name) then
             local clonedPart = Part:Clone()
-            clonedPart:ClearAllChildren()
-            clonedPart.Transparency = 1
+            --clonedPart:ClearAllChildren()
+            
+            if Part.Name == "Right Arm" then
+                local grip = Part:FindFirstChild("Right Grip")
+                if grip then grip:Destroy() grip = nil end
+            end
+            
+            clonedPart.Transparency = Part.Transparency
             clonedPart.CanCollide = false
             clonedPart.CanQuery = false
             clonedPart.CanTouch = false
@@ -42,31 +48,6 @@ local function onCharacterAdded(Character)
             end
         end
     end)
-end
-
--- Hooks
-if hookmetamethod ~= nil then -- Solaratard
-    local settingAdornee = false
-    local h; h = hookmetamethod(game, "__newindex", newcclosure(function(...)
-        if not checkcaller() then
-            local s,k,v = ...
-            if s:IsA("SelectionBox") and typeof(k) == "string" then
-                if (k == "adornee" or k == "Adornee") and not settingAdornee then
-                    settingAdornee = true
-                    local modelCharacter = s.Parent.Parent
-                    local fakePartAdornee = modelCharacter:FindFirstChild("Fake"..s.Parent.Name)
-                    warn("Hook",modelCharacter,fakePartAdornee)
-                    if modelCharacter and fakePartAdornee then
-                        s[k] = fakePartAdornee
-                        warn("we set the ake part")
-                        settingAdornee = false
-                    end
-                    settingAdornee = false
-                end
-            end
-        end
-        return h(...)
-    end))
 end
 
 -- Character Handling
