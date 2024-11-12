@@ -24,7 +24,6 @@ local function onCharacterAdded(Character)
             clonedPart.Massless = true
             clonedPart.Name = "Fake"..Part.Name
             clonedPart.Size = Part.Size
-            clonedPart.Parent = Character
 
             clonedPart.CFrame = Part.CFrame
 
@@ -32,6 +31,8 @@ local function onCharacterAdded(Character)
             Weld.Parent = clonedPart
             Weld.Part0 = clonedPart
             Weld.Part1 = Part
+
+            clonedPart.Parent = Part
         end
     end
 
