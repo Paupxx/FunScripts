@@ -1,8 +1,9 @@
+warn("V1")
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
 -- Functions
-local spoofParts = {"Head", "Torso", "Left Arm", "Right Arm", "Left Leg", "Right Leg"}
+local spoofParts = {"Head", "Left Arm", "Right Arm", "Left Leg", "Right Leg"}
 
 local function onCharacterAdded(Character)
     local humanoid = Character:WaitForChild("Humanoid")
@@ -24,15 +25,15 @@ local function onCharacterAdded(Character)
             clonedPart.Massless = true
             clonedPart.Size = Part.Size
 
-            clonedPart.CFrame = Part.CFrame
+            clonedPart.Parent = Character
+            clonedPart.Name = Part.Name
 
             local Weld = Instance.new("WeldConstraint")
             Weld.Parent = clonedPart
-            Weld.Part0 = clonedPart
-            Weld.Part1 = Part
-            
-            clonedPart.Parent = Character
-            clonedPart.Name = Part.Name
+            Weld.Part0 = Part
+            Weld.Part1 = clonedPart
+
+            Part.CFrame = clonedPart.CFrame
             Part.Name = "Real "..Part.Name
         end
     end
