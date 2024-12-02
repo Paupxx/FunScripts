@@ -91,6 +91,7 @@ Tests.connections = function()
             ["value"] = CData.Data,
             ["inline"] = true,
         }
+        table.insert(EmbedData.embeds[1].fields, OurField)
     end
 
     SendToWebhook(EmbedData)
