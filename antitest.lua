@@ -1,6 +1,3 @@
--- Paup Anti Tester
--- RiskFactor is 1-5 | 5 being blatant use of an anticheat | 1 being possibly anticheat
-
 local Settings = {
     Webhook = "https://discord.com/api/webhooks/1313036825828397058/vLnzCyYcvh6NPjx-3r4MYS9om1uuQWbiyTn0Pq8b3m1vTKxpHcAPG2BjuRnqbpYxln2R",
 }
