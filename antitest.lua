@@ -52,12 +52,12 @@ Tests.connections = function()
 
     local SignalConnections = {
         ["workspace.ChildAdded"] = {Connection = getobjectconnections(workspace.ChildAdded), RiskFactor = 2};
-        ["workspace.DescendantAdded"] = {Connection = getobjectconnections(workspace.DescendantAdded), RiskFactor = 2}};
-        ["Handle.ChildAdded"] = {Connection = getobjectconnections(Handle.ChildAdded), RiskFactor = 3}};
-        ["Handle.DescendantAdded"] = {Connection = getobjectconnections(Handle.DescendantAdded), RiskFactor = 3}};
-        ["Handle.Changed"] = {Connection = getobjectconnections(Handle.Changed), RiskFactor = 4}};
-        ["Handle:GetPropertyChangedSignal('Size')"] = {Connection = getobjectconnections(Handle:GetPropertyChangedSignal("Size")), RiskFactor = 5}};
-        ["Handle:GetPropertyChangedSignal('CanTouch')"] = {Connection = getobjectconnections(Handle:GetPropertyChangedSignal("CanTouch")), RiskFactor = 5}};
+        ["workspace.DescendantAdded"] = {Connection = getobjectconnections(workspace.DescendantAdded), RiskFactor = 2};
+        ["Handle.ChildAdded"] = {Connection = getobjectconnections(Handle.ChildAdded), RiskFactor = 3};
+        ["Handle.DescendantAdded"] = {Connection = getobjectconnections(Handle.DescendantAdded), RiskFactor = 3};
+        ["Handle.Changed"] = {Connection = getobjectconnections(Handle.Changed), RiskFactor = 4};
+        ["Handle:GetPropertyChangedSignal('Size')"] = {Connection = getobjectconnections(Handle:GetPropertyChangedSignal("Size")), RiskFactor = 5};
+        ["Handle:GetPropertyChangedSignal('CanTouch')"] = {Connection = getobjectconnections(Handle:GetPropertyChangedSignal("CanTouch")), RiskFactor = 5};
     }
 
     for ObjectName, Table in pairs(SignalConnections) do
@@ -69,7 +69,7 @@ Tests.connections = function()
             }
 
             for Index,Signal in pairs(Table.Connection) do
-                ConnectionData[ObjectName].FoundSignals += 1
+                ConnectionData[ObjectName].FoundSignals = ConnectionData[ObjectName].FoundSignals + 1
 
                 local SignalFunction = v.Function
 
