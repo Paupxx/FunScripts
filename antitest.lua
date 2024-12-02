@@ -93,3 +93,6 @@ Tests.connections = function()
 
     SendToWebhook(EmbedData)
 end
+
+-- Run Tests
+test.connections()
